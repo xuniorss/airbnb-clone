@@ -1,3 +1,4 @@
+import { Navbar } from '@/components/Navbar'
 import { Nunito } from 'next/font/google'
 import { ReactNode } from 'react'
 
@@ -13,7 +14,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
    return (
       <html lang="pt-br">
-         <body className={nunito.className}>{children}</body>
+         <body className={nunito.className}>
+            <Navbar />
+            {children}
+         </body>
       </html>
    )
 }
