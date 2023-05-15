@@ -36,6 +36,7 @@ export const RegisterModal = () => {
             .post('/api/register', data)
             .then(() => {
                registerModal.onClose()
+               toast.success('Conta criada com sucesso.')
             })
             .catch((error) => {
                console.error(error)
