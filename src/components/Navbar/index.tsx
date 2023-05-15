@@ -1,11 +1,11 @@
-import { User } from '@prisma/client'
+import { SafeUser } from '@/types/user'
 import { Container } from '../Container'
 import { Logo } from './components/Logo'
 import { Search } from './components/Search'
 import { UserMenu } from './components/UserMenu'
 
 type NavbarProps = {
-   currentUser?: User | null
+   currentUser?: SafeUser | null
 }
 
 export const Navbar = ({ currentUser }: NavbarProps) => {

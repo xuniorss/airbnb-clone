@@ -1,19 +1,18 @@
 'use client'
 
-import { Input } from '@/components/Inputs'
-import useRegisterModal from '@/hooks/useRegisterModal'
-import axios from 'axios'
-import { useCallback, useState } from 'react'
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
-import { Modal } from '..'
-import { Heading } from '../components/Heading'
-import { toast } from 'react-hot-toast'
 import { Button } from '@/components/Button'
-import { FcGoogle } from 'react-icons/fc'
-import { AiFillGithub } from 'react-icons/ai'
+import { Input } from '@/components/Inputs'
 import useLoginModal from '@/hooks/useLoginModal'
+import useRegisterModal from '@/hooks/useRegisterModal'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import { useCallback, useState } from 'react'
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
+import { toast } from 'react-hot-toast'
+import { AiFillGithub } from 'react-icons/ai'
+import { FcGoogle } from 'react-icons/fc'
+import { Modal } from '..'
+import { Heading } from '../components/Heading'
 
 export const LoginModal = () => {
    const [isLoading, setIsLoading] = useState(false)
@@ -89,14 +88,14 @@ export const LoginModal = () => {
             outline
             label="Continuar com Google"
             icon={FcGoogle}
-            onClick={() => {}}
+            onClick={() => signIn('google')}
          />
 
          <Button
             outline
             label="Continuar com Github"
             icon={AiFillGithub}
-            onClick={() => {}}
+            onClick={() => signIn('github')}
          />
 
          <div className="text-neutral-500 text-center mt-4 font-light">

@@ -11,6 +11,7 @@ import { toast } from 'react-hot-toast'
 import { Button } from '@/components/Button'
 import { FcGoogle } from 'react-icons/fc'
 import { AiFillGithub } from 'react-icons/ai'
+import { signIn } from 'next-auth/react'
 
 export const RegisterModal = () => {
    const [isLoading, setIsLoading] = useState(false)
@@ -91,14 +92,14 @@ export const RegisterModal = () => {
             outline
             label="Continuar com Google"
             icon={FcGoogle}
-            onClick={() => {}}
+            onClick={() => signIn('google')}
          />
 
          <Button
             outline
             label="Continuar com Github"
             icon={AiFillGithub}
-            onClick={() => {}}
+            onClick={() => signIn('github')}
          />
 
          <div className="text-neutral-500 text-center mt-4 font-light">

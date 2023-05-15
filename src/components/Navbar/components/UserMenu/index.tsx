@@ -3,14 +3,14 @@
 import { Avatar } from '@/components/Avatar'
 import useLoginModal from '@/hooks/useLoginModal'
 import useRegisterModal from '@/hooks/useRegisterModal'
-import { User } from '@prisma/client'
+import { SafeUser } from '@/types/user'
 import { signOut } from 'next-auth/react'
 import { useCallback, useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { MenuItem } from './components/MenuItem'
 
 type UserMenuProps = {
-   currentUser?: User | null
+   currentUser?: SafeUser | null
 }
 
 export const UserMenu = ({ currentUser }: UserMenuProps) => {
@@ -38,7 +38,7 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
             >
                <AiOutlineMenu />
                <div className="hidden md:block">
-                  <Avatar />
+                  <Avatar src={currentUser?.image} />
                </div>
             </div>
          </div>
