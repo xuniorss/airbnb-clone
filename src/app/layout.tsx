@@ -1,3 +1,5 @@
+import getCurrentUser from '@/actions/getCurrentUser'
+import { LoginModal } from '@/components/Modals/LoginModal'
 import { RegisterModal } from '@/components/Modals/RegisterModal'
 import { Navbar } from '@/components/Navbar'
 import ToastProvider from '@/providers/ToastProvider'
@@ -13,13 +15,20 @@ export const metadata = {
    description: 'Airbnb clone',
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({
+   children,
+}: {
+   children: ReactNode
+}) {
+   const currentUser = await getCurrentUser()
+
    return (
       <html lang="pt-br">
          <body className={nunito.className}>
             <ToastProvider />
+            <LoginModal />
             <RegisterModal />
-            <Navbar />
+            <Navbar currentUser={currentUser} />
             {children}
          </body>
       </html>
