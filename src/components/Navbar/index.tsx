@@ -1,5 +1,7 @@
 import { SafeUser } from '@/types/user'
+
 import { Container } from '../Container'
+import { Categories } from './components/Categories'
 import { Logo } from './components/Logo'
 import { Search } from './components/Search'
 import { UserMenu } from './components/UserMenu'
@@ -20,6 +22,7 @@ export const Navbar = ({ currentUser }: NavbarProps) => {
                </div>
             </Container>
          </div>
+         <Categories />
       </div>
    )
 }
