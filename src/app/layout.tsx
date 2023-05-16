@@ -1,6 +1,7 @@
 import getCurrentUser from '@/actions/getCurrentUser'
 import { LoginModal } from '@/components/Modals/LoginModal'
 import { RegisterModal } from '@/components/Modals/RegisterModal'
+import { RentModal } from '@/components/Modals/RentModal'
 import { Navbar } from '@/components/Navbar'
 import ToastProvider from '@/providers/ToastProvider'
 import { Nunito } from 'next/font/google'
@@ -26,6 +27,7 @@ export default async function RootLayout({
       <html lang="pt-br">
          <body className={nunito.className}>
             <ToastProvider />
+            <RentModal />
             <LoginModal />
             <RegisterModal />
             <Navbar currentUser={currentUser} />

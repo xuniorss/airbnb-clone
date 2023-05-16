@@ -12,11 +12,13 @@ import { Button } from '@/components/Button'
 import { FcGoogle } from 'react-icons/fc'
 import { AiFillGithub } from 'react-icons/ai'
 import { signIn } from 'next-auth/react'
+import useLoginModal from '@/hooks/useLoginModal'
 
 export const RegisterModal = () => {
    const [isLoading, setIsLoading] = useState(false)
 
    const registerModal = useRegisterModal()
+   const loginModal = useLoginModal()
 
    const {
       register,
@@ -49,6 +51,11 @@ export const RegisterModal = () => {
       },
       [registerModal]
    )
+
+   const toggle = useCallback(() => {
+      registerModal.onClose()
+      loginModal.onOpen()
+   }, [loginModal, registerModal])
 
    const bodyContent = (
       <div className="flex flex-col gap-4">
@@ -107,7 +114,7 @@ export const RegisterModal = () => {
                <div>Já tem uma conta?</div>
                <div
                   className="text-neutral-800 cursor-pointer hover:underline"
-                  onClick={registerModal.onClose}
+                  onClick={toggle}
                >
                   Acesse
                </div>

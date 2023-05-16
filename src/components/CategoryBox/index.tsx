@@ -52,7 +52,7 @@ export const CategoryBox = ({
          } ${selected ? 'text-neutral-800' : 'text-neutral-500'}`}
       >
          <Icon size={26} />
-         <div className="font-medium text-sm">{label}</div>
+         <div className="font-medium text-sm sm:truncate">{label}</div>
       </div>
    )
 }

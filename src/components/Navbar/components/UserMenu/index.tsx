@@ -3,6 +3,7 @@
 import { Avatar } from '@/components/Avatar'
 import useLoginModal from '@/hooks/useLoginModal'
 import useRegisterModal from '@/hooks/useRegisterModal'
+import useRentModal from '@/hooks/useRentModal'
 import { SafeUser } from '@/types/user'
 import { signOut } from 'next-auth/react'
 import { useCallback, useState } from 'react'
@@ -18,16 +19,23 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
 
    const registerModal = useRegisterModal()
    const loginModal = useLoginModal()
+   const rentModal = useRentModal()
 
    const toggleOpen = useCallback(() => {
       setIsOpen((value) => !value)
    }, [])
 
+   const onRent = useCallback(() => {
+      if (!currentUser) return loginModal.onOpen()
+
+      rentModal.onOpen()
+   }, [currentUser, loginModal, rentModal])
+
    return (
       <div className="relative">
          <div className="flex flex-row items-center gap-3">
             <div
-               onClick={() => {}}
+               onClick={onRent}
                className="hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:bg-neutral-100 trnasition cursor-pointer"
             >
                Anuncie seu espaço no Airbnb
@@ -54,10 +62,7 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
                            onClick={() => {}}
                            label="Minhas propriedades"
                         />
-                        <MenuItem
-                           onClick={() => {}}
-                           label="Airbnb meu espaço"
-                        />
+                        <MenuItem onClick={onRent} label="Airbnb meu espaço" />
 
                         <hr />
 
