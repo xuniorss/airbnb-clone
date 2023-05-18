@@ -87,7 +87,7 @@ export const LoginModal = () => {
    )
 
    const footerContent = (
-      <div className="flex flex-col gap-4 mt-3">
+      <div className="mt-3 flex flex-col gap-4">
          <hr />
          <Button
             outline
@@ -103,11 +103,11 @@ export const LoginModal = () => {
             onClick={() => signIn('github')}
          />
 
-         <div className="text-neutral-500 text-center mt-4 font-light">
+         <div className="mt-4 text-center font-light text-neutral-500">
             <div className="flex flex-row items-center justify-center gap-2">
                <div>Primeira vez usando o Airbnb?</div>
                <div
-                  className="text-neutral-800 cursor-pointer hover:underline"
+                  className="cursor-pointer text-neutral-800 hover:underline"
                   onClick={toggle}
                >
                   Crie uma conta

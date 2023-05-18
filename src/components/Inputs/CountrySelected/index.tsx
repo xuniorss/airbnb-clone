@@ -32,7 +32,7 @@ export const CountrySelected = ({ value, onChange }: CountrySelectProps) => {
                   <div>{option.flag}</div>
                   <div>
                      {option.label},
-                     <span className="text-neutral-500 ml-1">
+                     <span className="ml-1 text-neutral-500">
                         {option.region}
                      </span>
                   </div>

@@ -124,7 +124,7 @@ export const RentModal = () => {
             title="Qual destas opções melhor descreve o seu lugar?"
             subtitle="Escolha uma categoria"
          />
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto">
+         <div className="grid max-h-[50vh] grid-cols-1 gap-3 overflow-y-auto md:grid-cols-2">
             {categories.map((item) => (
                <div key={item.label}>
                   <CategoryInput
@@ -161,7 +161,7 @@ export const RentModal = () => {
 
    if (step === STEPS.INFO) {
       bodyContent = (
-         <div className="flex flex-col gap-8 select-none">
+         <div className="flex select-none flex-col gap-8">
             <Heading
                title="Diga algumas informações básicas sobre seu lugar"
                subtitle="Que comodidades você tem?"
