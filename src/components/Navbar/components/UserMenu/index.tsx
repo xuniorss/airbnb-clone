@@ -6,6 +6,7 @@ import useRegisterModal from '@/hooks/useRegisterModal'
 import useRentModal from '@/hooks/useRentModal'
 import { SafeUser } from '@/types/user'
 import { signOut } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import { useCallback, useState } from 'react'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { MenuItem } from './components/MenuItem'
@@ -16,6 +17,8 @@ type UserMenuProps = {
 
 export const UserMenu = ({ currentUser }: UserMenuProps) => {
    const [isOpen, setIsOpen] = useState(false)
+
+   const router = useRouter()
 
    const registerModal = useRegisterModal()
    const loginModal = useLoginModal()
@@ -55,7 +58,10 @@ export const UserMenu = ({ currentUser }: UserMenuProps) => {
                <div className="flex cursor-pointer flex-col">
                   {currentUser && (
                      <>
-                        <MenuItem onClick={() => {}} label="Minhas viagens" />
+                        <MenuItem
+                           onClick={() => router.push('/trips')}
+                           label="Minhas viagens"
+                        />
                         <MenuItem onClick={() => {}} label="Meus favoritos" />
                         <MenuItem onClick={() => {}} label="Minhas reservas" />
                         <MenuItem

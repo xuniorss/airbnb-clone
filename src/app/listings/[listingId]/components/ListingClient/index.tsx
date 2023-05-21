@@ -78,8 +78,7 @@ export const ListingClient = ({
          .then(() => {
             toast.success('Listagem reservada!')
             setDateRange(initialDateRange)
-            // Redirect to /trips
-            router.refresh()
+            router.push('/trips')
          })
          .catch(() => toast.error('Algo deu errado.'))
          .finally(() => setIsloading(false))

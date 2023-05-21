@@ -4,8 +4,8 @@ import { Button } from '@/components/Button'
 import { HeartButton } from '@/components/HeartButton'
 import useCountries from '@/hooks/useCountries'
 import { SafeListing } from '@/types/listings'
+import { SafeReservation } from '@/types/reservations'
 import { SafeUser } from '@/types/user'
-import { Reservation } from '@prisma/client'
 import { format } from 'date-fns'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
@@ -13,7 +13,7 @@ import { MouseEvent, useCallback, useMemo } from 'react'
 
 type ListingCardProps = {
    data: SafeListing
-   reservation?: Reservation
+   reservation?: SafeReservation
    onAction?: (id: string) => void
    disabled?: boolean
    actionLabel?: string
