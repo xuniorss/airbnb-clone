@@ -7,6 +7,7 @@ import { ListingReservation } from '@/components/Listings/ListingReservation'
 import { categories } from '@/components/Navbar/components/Categories/constants'
 import useLoginModal from '@/hooks/useLoginModal'
 import { SafeListing } from '@/types/listings'
+import { SafeReservation } from '@/types/reservations'
 import { SafeUser } from '@/types/user'
 import { Reservation } from '@prisma/client'
 import axios from 'axios'
@@ -23,7 +24,7 @@ const initialDateRange = {
 }
 
 type ListClientProps = {
-   reservations?: Reservation[]
+   reservations?: SafeReservation[]
    listing: SafeListing & {
       user: SafeUser
    }
